@@ -39,7 +39,7 @@ table{width:100%;font-size:12px;border-collapse:collapse;}
 <body>
 
 <h1>デタラメじゃんけん</h1>
-<p class="sub">CPUの手はランダムじゃない。隠されたルールで動いている。</p>
+<p class="sub">相手の手はランダムじゃない。隠されたルールで動いている。</p>
 
 <div style="max-width:360px;margin:0 auto 1.5rem;background:var(--surface-1);border-radius:12px;border:0.5px solid var(--border);padding:1rem;">
   <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--text-secondary);margin-bottom:10px;">
@@ -58,18 +58,18 @@ table{width:100%;font-size:12px;border-collapse:collapse;}
   <p style="font-size:13px;color:var(--text-secondary);margin:0 0 6px;font-weight:600;">履歴</p>
   <div id="historyList" style="margin-bottom:1.5rem;"></div>
 
-  <p style="font-size:13px;color:var(--text-secondary);margin:0 0 6px;font-weight:600;">答え合わせ: CPUはどのルールで手を決めている?</p>
+  <p style="font-size:13px;color:var(--text-secondary);margin:0 0 6px;font-weight:600;">答え合わせ: 相手はどのルールで手を決めている?</p>
   <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px;background:var(--surface-2);border:0.5px solid var(--border);border-radius:8px;padding:10px 14px;">
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="alwaysRock"> CPUは常にグーを出す</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="mirror"> CPUはあなたと同じ手を出す(毎回あいこ)</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="alwaysPlayerWins"> CPUはあなたが勝つ手を出す(常にあなたの勝ち)</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="alwaysCpuWins"> CPUはあなたに勝つ手を出す(常にCPUの勝ち)</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="prevMove"> CPUは1回前のあなたの手をそのまま出す</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="beatsPrev"> CPUは1回前のあなたの手に勝つ手を出す</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="losesToPrev"> CPUは1回前のあなたの手に負ける手を出す</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="firstMoveRepeat"> CPUは最初にあなたが出した手をずっと出し続ける</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="cyclicByRound"> CPUはグー→チョキ→パーの順に手を巡回させる</label>
-    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="sumMod3"> CPUはあなたの手の合計を3で割った余りで決める</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="alwaysRock"> 相手は常にグーを出す</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="mirror"> 相手はあなたと同じ手を出す(毎回あいこ)</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="alwaysPlayerWins"> 相手はあなたが勝つ手を出す(常にあなたの勝ち)</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="alwaysCpuWins"> 相手はあなたに勝つ手を出す(常に相手の勝ち)</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="prevMove"> 相手は1回前のあなたの手をそのまま出す</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="beatsPrev"> 相手は1回前のあなたの手に勝つ手を出す</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="losesToPrev"> 相手は1回前のあなたの手に負ける手を出す</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="firstMoveRepeat"> 相手は最初にあなたが出した手をずっと出し続ける</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="cyclicByRound"> 相手はグー→チョキ→パーの順に手を巡回させる</label>
+    <label style="display:flex;gap:8px;align-items:center;font-size:13px;"><input type="radio" name="ruleGuess" value="sumMod3"> 相手はあなたの手の合計を3で割った余りで決める</label>
   </div>
   <div style="display:flex;gap:8px;">
     <button class="panelbtn" onclick="judgeGuess()" style="flex:1;">答え合わせ</button>
@@ -85,16 +85,16 @@ table{width:100%;font-size:12px;border-collapse:collapse;}
 const MOVES = ['グー','チョキ','パー'];
 
 const RULES = [
-  {id:'alwaysRock', name:'CPUは常にグーを出す', fn:ctx=> 0},
-  {id:'mirror', name:'CPUはあなたと同じ手を出す(毎回あいこ)', fn:ctx=> ctx.player},
-  {id:'alwaysPlayerWins', name:'CPUはあなたが勝つ手を出す(常にあなたの勝ち)', fn:ctx=> (ctx.player+1)%3},
-  {id:'alwaysCpuWins', name:'CPUはあなたに勝つ手を出す(常にCPUの勝ち)', fn:ctx=> (ctx.player+2)%3},
-  {id:'prevMove', name:'CPUは1回前のあなたの手をそのまま出す', fn:ctx=> ctx.prev===null ? 0 : ctx.prev},
-  {id:'beatsPrev', name:'CPUは1回前のあなたの手に勝つ手を出す', fn:ctx=> ctx.prev===null ? 0 : (ctx.prev+2)%3},
-  {id:'losesToPrev', name:'CPUは1回前のあなたの手に負ける手を出す', fn:ctx=> ctx.prev===null ? 0 : (ctx.prev+1)%3},
-  {id:'firstMoveRepeat', name:'CPUは最初にあなたが出した手をずっと出し続ける', fn:ctx=> ctx.firstMove===null ? 0 : ctx.firstMove},
-  {id:'cyclicByRound', name:'CPUはグー→チョキ→パーの順に手を巡回させる', fn:ctx=> (ctx.round-1)%3},
-  {id:'sumMod3', name:'CPUはあなたの手の合計を3で割った余りで決める', fn:ctx=> ctx.sumIncludingCurrent%3}
+  {id:'alwaysRock', name:'相手は常にグーを出す', fn:ctx=> 0},
+  {id:'mirror', name:'相手はあなたと同じ手を出す(毎回あいこ)', fn:ctx=> ctx.player},
+  {id:'alwaysPlayerWins', name:'相手はあなたが勝つ手を出す(常にあなたの勝ち)', fn:ctx=> (ctx.player+1)%3},
+  {id:'alwaysCpuWins', name:'相手はあなたに勝つ手を出す(常に相手の勝ち)', fn:ctx=> (ctx.player+2)%3},
+  {id:'prevMove', name:'相手は1回前のあなたの手をそのまま出す', fn:ctx=> ctx.prev===null ? 0 : ctx.prev},
+  {id:'beatsPrev', name:'相手は1回前のあなたの手に勝つ手を出す', fn:ctx=> ctx.prev===null ? 0 : (ctx.prev+2)%3},
+  {id:'losesToPrev', name:'相手は1回前のあなたの手に負ける手を出す', fn:ctx=> ctx.prev===null ? 0 : (ctx.prev+1)%3},
+  {id:'firstMoveRepeat', name:'相手は最初にあなたが出した手をずっと出し続ける', fn:ctx=> ctx.firstMove===null ? 0 : ctx.firstMove},
+  {id:'cyclicByRound', name:'相手はグー→チョキ→パーの順に手を巡回させる', fn:ctx=> (ctx.round-1)%3},
+  {id:'sumMod3', name:'相手はあなたの手の合計を3で割った余りで決める', fn:ctx=> ctx.sumIncludingCurrent%3}
 ];
 
 let round=0, history=[], score={win:0,lose:0,draw:0}, currentRule=null;
@@ -153,7 +153,7 @@ function revealRule(correctOrNull){
   else if(correctOrNull===false){ msg='<p style="color:var(--text-danger);font-weight:600;margin:10px 0 4px;">残念、違います</p>'; }
   let html = msg + '<p style="font-size:14px;margin:4px 0 12px;">正解のルール: <strong>'+currentRule.name+'</strong></p>';
   if(history.length){
-    html += '<table><tr><td style="color:var(--text-muted);padding:2px 6px 2px 0;">回</td><td style="color:var(--text-muted);padding:2px 6px;">あなた</td><td style="color:var(--text-muted);padding:2px 6px;">CPU</td><td style="color:var(--text-muted);padding:2px 0 2px 6px;">結果</td></tr>';
+    html += '<table><tr><td style="color:var(--text-muted);padding:2px 6px 2px 0;">回</td><td style="color:var(--text-muted);padding:2px 6px;">あなた</td><td style="color:var(--text-muted);padding:2px 6px;">相手</td><td style="color:var(--text-muted);padding:2px 0 2px 6px;">結果</td></tr>';
     history.slice(-8).forEach(h=>{
       html+='<tr><td style="padding:2px 6px 2px 0;">'+h.round+'</td><td style="padding:2px 6px;">'+MOVES[h.player]+'</td><td style="padding:2px 6px;">'+MOVES[h.cpu]+'</td><td style="padding:2px 0 2px 6px;color:var(--text-secondary);">'+resultLabel(h.result)+'</td></tr>';
     });
@@ -167,7 +167,7 @@ function render(){
   document.getElementById('roundLine').textContent = '第'+round+'回';
   if(history.length){
     const last = history[history.length-1];
-    document.getElementById('resultLine').textContent = 'あなた['+MOVES[last.player]+'] vs CPU['+MOVES[last.cpu]+'] → '+resultLabel(last.result);
+    document.getElementById('resultLine').textContent = 'あなた['+MOVES[last.player]+'] vs 相手['+MOVES[last.cpu]+'] → '+resultLabel(last.result);
   }
   const list=document.getElementById('historyList');
   if(history.length===0){ list.innerHTML='<p style="color:var(--text-muted);font-size:13px;margin:0;">まだ対戦していません</p>'; }
